@@ -1,0 +1,345 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+:root{
+    --font1: 'Vollkorn',Georgia, serif;
+    --font2: Courier, monospace;
+    --cor1:#ffffff;
+    --cor2:#B07DFB;
+    --cor3:#8844ee;
+    --cor4:#0000001a;
+    --cor5:#00000080;
+    --cor6:#fafbfc;
+    --cor7:rgba(0, 0, 0, 0.8);
+}
+body{
+    font-family: var(--font1);
+    
+}
+img{
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+}
+
+/* GRID GERAL */
+
+.estrutura{
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+    grid-template-areas:
+    "header header header"
+    "sidenav content anuncios"
+    "footer footer footer"
+    ;
+}
+
+
+/* Header */
+.header{
+    grid-area: header;
+    background: linear-gradient(135deg, var(--cor3),var(--cor2));
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+.header .logo{
+    max-width: 200px;
+}
+.header nav ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.header nav a{
+    display: block;
+    padding: 10px;
+    color: var(--cor1);
+    font-size: 1.125em;
+    background: var(--cor4);
+    border-radius: 5px;
+    transition: 0.1s;
+    text-transform: uppercase;
+}
+.header nav a:hover{
+    background: var(--cor5);
+}
+.header li + li{ /* + Adiciona margem left somente ao li que vem após li */
+    margin-left: 30px;
+}
+
+/* SIDENAV */
+
+.sidenav{
+    grid-area: sidenav;
+    background: var(--cor6);
+    padding: 30px;
+}
+.sidenav li a{
+    display: block;
+    min-width: 60px;
+    max-width: 100px;
+    margin: 0 auto 30px auto;
+    background-color: var(--cor1);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgba(44,44,44,0.15);
+    transition: .1s ease-out;
+}
+.sidenav li a:hover{
+    background: var(--cor2);
+}
+/* CONTENT */
+.content{
+    grid-area: content;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+    column-gap:30px;
+}
+.col-wide{
+    grid-column: 1 / -1;
+    
+}
+.col-wide-img{ /* Alinhamento da ultima img */
+    grid-column: 1 / -1;
+    background: #000000;
+    margin: 0 auto;
+}
+
+.imagem-1{
+    grid-row: span 2;
+    align-self:stretch;
+}
+.imagem-2{
+    align-self: flex-end;
+}
+/* ETILOS CONTENT */
+
+p{
+    font-size: 1.4em;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    color: var(--cor7);
+}
+.informacoes p + p{ /* + Adiciona margem top somente ao p que vem após p */
+    margin-top: 30px;
+}
+
+/* TITULO */
+
+.titulo{
+    color: var(--cor2);
+}
+.titulo h1{
+    font-size: 3.75em;
+    line-height: 1;
+    font-weight: 700;
+}
+.titulo span{
+    font-size: 1em;
+    font-style: italic;
+}
+
+/* CARACTERISTICAS */
+
+.caracteristicas{
+    display: flex;
+    align-items: flex-start;
+}
+.caracteristicas > div{
+    width: 80px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--cor3),var(--cor2));
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgba(44,44,44,0.15);
+    position: relative;
+}
+.caracteristicas >div:first-child{
+    margin-right: 30px;
+}
+.caracteristicas span{
+    display: block;
+    color: var(--cor2);
+}
+.numero{
+    color: var(--cor2);
+    font-size: 3em;
+    line-height: 1;
+    margin: 10px auto;
+}
+.rotulo{
+    background: var(--cor1);
+    border-radius: 0 0 5px 5px;
+    padding: 5px 0;
+    position: relative;
+    top: 2px;
+}
+.destaque{
+    font-size: 1.15em;
+    color: var(--cor2);
+    max-width: 16em;
+}
+
+/* ANUNCIOS */
+
+.anuncios{
+    grid-area: anuncios;
+    background: var(--cor6);
+    display: grid;
+    align-content: start;
+    padding: 30px;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    
+}
+.citacao,.atributos{
+    align-self: start;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 0px rgba(44,44,44,0.15);
+    background: linear-gradient(135deg, var(--cor3),var(--cor2));
+}
+.citacao p{
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    color: var(--cor1);
+}
+.atributos li {
+    color: var(--cor1);
+    font-family: var(--font2);
+    font-size: 1.15em;
+    padding: 15px;
+    
+}
+.atributos li + li{
+    border-top: 2px solid var(--cor2);
+}
+
+/* FOOTER*/
+
+.footer{
+    grid-area: footer;
+    background: linear-gradient(135deg, var(--cor3),var(--cor2));
+}
+.footer p{
+    color: var(--cor1);
+    text-align: center;
+    padding: 30px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+@keyframes seta{
+    from {
+        right: 30px;
+    }
+    to{
+        right: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .estrutura{
+        grid-template-columns:minmax(160px, 1fr) 80%;
+        grid-template-areas:
+        "header header"
+        "sidenav content"
+        "sidenav anuncios"
+        "footer footer"
+        ;
+    }
+}
+
+@media (max-width: 760px){
+    .estrutura{
+        margin: 0 auto;
+        grid-template-columns: 100%;
+        grid-template-areas:
+        "header"
+        "sidenav"
+        "content"
+        "anuncios"
+        "footer"
+        ;
+    }
+    .logo{
+        margin-bottom: 20px;
+    }
+    .header{
+        grid-template-columns: auto;
+    }
+    .header nav a{
+        font-size: 1em;
+    }
+    .header li+li{
+        margin-left: 10px;
+    }
+    .sidenav{
+        position: relative;
+        padding: 0 30px;
+        overflow-x:auto;
+        scrollbar-width: thin;
+        scrollbar-color: blue orange;
+    }
+  
+ 
+  .sidenav::-webkit-scrollbar {
+    width: 100%;
+    height: 18px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--cor4);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--cor2);
+    border-radius: 20px;
+    border: 3px solid var(--cor3);
+  }
+    .sidenav::after{
+        content: '→';
+        position: absolute;
+        top: 5px;
+        right: 30px;
+        color: rgba(0,0,0,.3);
+        animation: seta .5s ease-in 0s infinite alternate;
+
+    }
+    .sidenav ul{
+        display: flex;
+    }
+    .sidenav ul li{
+        flex: 1 0 60px;
+    }
+    .sidenav li a{
+        margin: 30px 30px 30px 0;
+    }
+
+}
+@media (max-width: 600px){
+    .content{
+        grid-template-columns: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
